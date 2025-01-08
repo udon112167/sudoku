@@ -267,7 +267,7 @@ void initialize()
     print_board();
 }
 
-int main()
+void sudoku16()
 {
     char c;
     bool action_ok;
@@ -303,5 +303,9 @@ int main()
             cout << get_styled_text("!!! Invalid action !!!", "R");
     }
 
-    return 0;
+    return;
+}
+int main(){
+	sudoku16();
+	return 0;
 }
