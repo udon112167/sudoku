@@ -10,6 +10,13 @@ int board[4][4] = {
     {0, 1, 0, 0},
 }; //題目 
 
+int answer[4][4]={
+	{3, 2, 1, 4},
+    {1, 4, 3, 2},
+    {4, 3, 2, 1},
+    {2, 1, 4, 3}
+};	
+
 bool editable[4][4]; //格子內是否為題目 
 int cur_r = 0, cur_c = 0; //r是上下 c是左右 
 
@@ -267,6 +274,17 @@ void initialize()
     print_board();
 }
 
+void solution(){
+	for(int i=0;i<4;i++){
+		for(int j=0;j<4;j++){
+			board[i][j]=answer[i][j];
+		}
+	}
+	cur_r=-1;
+	cur_c=-1;
+	return;
+}
+
 void sudoku16()
 {
     char c;
@@ -290,9 +308,18 @@ void sudoku16()
 
         if (c == 'Q' || c == 'q')
             break;
-
+		
+		if(c=='e' || c=='E'){
+			solution();
+		}
+		
         print_board();
-
+		
+		if(c=='e' || c=='E'){
+			cout << "HERE IS THE ANSWER" << endl;
+            break;
+		}
+		
         if (check_win())
         {
             cout << "YOU WIN!" << endl;
